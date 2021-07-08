@@ -57,7 +57,9 @@ body {
   border-radius: 10px;
   height: 100vh;
   width: 100%;
+  font-size: 1.5rem;
 }
+
 .section {
   background-color: #FFF;
 }
