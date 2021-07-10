@@ -8,7 +8,7 @@ const Form = () => {
           <h3>Take a moment, and tell me what you think!</h3>
           <form action="https://formspree.io/mwkrgdjn" method="POST">
             <label for="name">Name:</label>
-            <input id="name" type="text" name="name" autocomplete="name" required maxLength="25" />
+            <input id="name" type="text" name="name" autoComplete="name" required maxLength="25" />
             <label for="email">Email:</label>
             <input type="text" id="email" name="email" required maxLength="30" />
             <label for="phone">Phone #:</label>
@@ -19,10 +19,7 @@ const Form = () => {
             <button type="reset"><b>Clear</b></button>
           </form>
         </div>
-
-        <div className="item">
-          <img src="images/notepad.jpg" alt="Notepad and pen" />
-        </div>
+        
       </div>
     </div>
   )

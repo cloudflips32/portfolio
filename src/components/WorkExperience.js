@@ -11,7 +11,7 @@ const WorkExperience = () => {
           </div>
           <h3>Current/Past Employment</h3>
 
-          <div className="item">
+          <div className="item" id='job-1'>
             <div className="card">
               <img src="https://th.bing.com/th/id/OIP.4b8nuUsDoo5yNLKgt2l2cAEsCo?pid=ImgDet&rs=1" alt="ebay-pic" />
               <div className="container">
@@ -23,7 +23,7 @@ const WorkExperience = () => {
             </div>
           </div>
           
-          <div className="item">
+          <div className="item" id='job-2'>
             <div className="card">
               <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Lyft_logo.svg/1200px-Lyft_logo.svg.png" alt="lyft-pic" />
               <div className="container">
@@ -35,7 +35,7 @@ const WorkExperience = () => {
             </div>
           </div>
 
-          <div className="item">
+          <div className="item" id='job-3'>
             <div className="card">
               <img src="https://th.bing.com/th/id/OIP.Ft3xQruPVRgJ2PKpmUA3MAHaE7?pid=ImgDet&rs=1" alt="uber-pic" />
               <div className="container">
