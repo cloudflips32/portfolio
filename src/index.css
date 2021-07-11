@@ -245,6 +245,10 @@ ul li {
     font-size: smaller;
   }
 
+  form button {
+    font-size: smaller;
+  }
+
   footer nav ul {
     display: flex;
     flex-direction: column;
