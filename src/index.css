@@ -157,8 +157,10 @@ img {
 form {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 50%;
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 form label {
@@ -194,6 +196,9 @@ form button {
   border-radius: 7px;
   box-shadow: 2px 2px 10px gray;
   font-size: 2rem;
+  width: 50%;
+  margin: 0 auto 1rem auto;
+  justify-content: center;
 }
 
 button:hover {
@@ -275,6 +280,10 @@ ul li {
     font-size: smaller;
   }
 
+  form button {
+    font-size: smaller;
+  }
+
   footer nav ul {
     display: flex;
     flex-direction: column;
@@ -312,6 +321,10 @@ ul li {
     max-width: 300px;
     height: 50%;
     margin: auto 0;
+  }
+
+  form button {
+    font-size: smaller;
   }
 
   footer nav ul {
