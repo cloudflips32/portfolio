@@ -111,6 +111,10 @@ img {
   border-radius: 10px;
 }
 
+#about-me {
+  padding-bottom: 1rem;
+}
+
 #work-experience {
   display: flex;
   flex-direction: column;
@@ -294,6 +298,14 @@ ul li {
   div .group {
     display: flex;
     flex-direction: column;
+  }
+
+  #interests {
+    padding-bottom: 1rem;
+  }
+
+  #interests h3 {
+    font-size: smaller;
   }
 
   .card img {
