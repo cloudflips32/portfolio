@@ -58,7 +58,7 @@ body {
   border-radius: 10px;
   height: 100vh;
   width: 100%;
-  font-size: 1.5rem;
+  font-size: 1rem;
   border: inset #000 solid 1rem;
   background-color: #000;
 }
@@ -66,6 +66,8 @@ body {
 .section {
   background-color: #FFF;
   border-radius: 1rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .section h2 {
@@ -87,10 +89,21 @@ p, span {
   margin: 0.8rem 0.4rem;
 }
 
+#interests .interests-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+#interests .interests-group .item {
+  display: flex;
+  flex-direction: column;
+}
+
 img {
   display: block;
   width: 100%;
-  transform: scale(0.6);
+  max-width: 500px;
   overflow: hidden;
   margin-left: auto;
   margin-right: auto;
@@ -98,20 +111,30 @@ img {
   border-radius: 10px;
 }
 
-#work-experience .item {
+#work-experience {
   display: flex;
   flex-direction: column;
 }
 
-#work-experience .item .card {
+#work-experience .item {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+#certification {
+  display: flex;
+  flex-direction: column;
+}
+
+#certification .group {
   display: flex;
   flex-direction: row;
-  margin-left: auto;
-  margin-right: auto;
+  justify-content: space-evenly;
 }
 
 .card {
-  margin: 1rem 0;
+  margin: 2rem 0;
   display: block;
 }
 
@@ -119,6 +142,10 @@ img {
   max-width: 300px;
   max-height: 70%;
   margin: 2rem 0;
+}
+
+#job-1 {
+  justify-content: flex-start;
 }
 
 /* FORM CSS */
@@ -187,6 +214,41 @@ ul li {
   justify-content: center;
 }
 
+@media(width: 320px) {
+  
+  #about-me img {
+    display: block;
+    margin-top: 75px;
+  }
+
+  div .group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card img {
+    max-width: 300px;
+    height: 50%;
+    margin: auto 0;
+  }
+
+  #interests h3 {
+    font-size: smaller;
+  }
+
+  footer nav ul {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  footer nav ul li {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  
+}
+
 @media(width: 375px) {
   
   #about-me img {
@@ -203,6 +265,10 @@ ul li {
     max-width: 300px;
     height: 50%;
     margin: auto 0;
+  }
+
+  #interests h3 {
+    font-size: smaller;
   }
 
   footer nav ul {
@@ -263,7 +329,6 @@ ul li {
 
   .card img {
     max-width: 300px;
-    max-height: 70%;
     margin: 2rem 0;
   }
 
@@ -282,7 +347,6 @@ ul li {
 @media (width:1024px) {
 
   img {
-    max-width: 75%;
     margin-left: auto;
     margin-right: auto;
   }
@@ -310,9 +374,15 @@ ul li {
 @media (width:1440px) {
 
   img {
-    max-width: 75%;
     margin-left: auto;
     margin-right: auto;
+    width: 100%;
+    max-width: 700px;
+    max-height: 467px;
+  }
+
+  #certification .group img{
+    transform: scale(0.9);
   }
   
   footer {
@@ -334,10 +404,11 @@ ul li {
 @media (width:2560px) {
 
   img {
-    max-width: 75%;
     margin-left: auto;
     margin-right: auto;
-    transform: scale(0.8);
+    width: 100%;
+    max-width: 700px;
+    max-height: 467px;
   }
 
   #certification .group {
