@@ -1,4 +1,4 @@
-"use server";
+"use client";
 
 export default function Hero({ goToSlide }: { goToSlide?: (section: string) => void }) {
   return (
