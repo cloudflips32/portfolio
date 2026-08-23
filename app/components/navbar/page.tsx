@@ -1,4 +1,5 @@
-// ─── Nav ────────────────────────────────────────────────────────────────────
+"use client";
+
 import {useState, useEffect} from 'react'
 
 const NAV_ITEMS = ["About", "Skills", "Projects", "Contact"];
