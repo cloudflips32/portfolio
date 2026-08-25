@@ -7,6 +7,27 @@ export default function Hero({ goToSlide }: { goToSlide?: (section: string) => v
       className="relative flex flex-col justify-end overflow-hidden"
       style={{ backgroundColor: "#0C0910", minHeight: "100svh" }}
     >
+      {/* Mobile half-portrait — green panel peeking from the right */}
+      <div className="lg:hidden absolute right-0 top-0 bottom-0 w-1/3 overflow-hidden" style={{ backgroundColor: "#0B6E4F" }}>
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(12,9,16,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(12,9,16,0.15) 1px, transparent 1px)",
+            backgroundSize: "40px 40px",
+          }}
+        />
+        <div className="absolute bottom-0 left-0 right-0 h-2/3 overflow-hidden">
+          <img
+            src="https://media.licdn.com/dms/image/v2/D4E03AQHb_qRXMo_65Q/profile-displayphoto-scale_400_400/B4EZy2Jtj8JEAg-/0/1772582532522?e=1788998400&v=beta&t=BCx1tQtXE_gHKbbYbdChsnGEokP6YjoOKtsNnAm0sxs"
+            alt="Adam Standish, frontend developer"
+            className="w-full h-full object-cover"
+            style={{ filter: "saturate(0.5) brightness(0.65)", mixBlendMode: "multiply" }}
+          />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, #0B6E4F 0%, transparent 30%)" }} />
+        </div>
+      </div>
+
       {/* Grid overlay */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -20,16 +41,6 @@ export default function Hero({ goToSlide }: { goToSlide?: (section: string) => v
         className="absolute top-0 right-0 w-px h-full hidden md:block"
         style={{ backgroundColor: "#0B6E4F", opacity: 0.4 }}
       />
-
-      {/* Corner label — desktop only */}
-      <div className="hidden md:block absolute top-8 right-12 text-right">
-        <p className="font-mono-label text-xs tracking-widest uppercase mb-1" style={{ color: "rgba(245,236,205,0.3)" }}>
-          Portfolio
-        </p>
-        <p className="font-mono-label text-xs" style={{ color: "rgba(245,236,205,0.2)" }}>
-          2026
-        </p>
-      </div>
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-8 pb-16 md:pb-20 pt-28 md:pt-0 w-full">
         <div className="mb-5 md:mb-6">
