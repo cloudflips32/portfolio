@@ -43,14 +43,32 @@ export default function About() {
         </div>
       </div>
 
-      {/* Tablet accent bar */}
+      {/* Tablet green panel — visible on md, hidden on lg+ */}
       <div
-        className="hidden md:block lg:hidden absolute left-0 top-0 bottom-0 w-1"
+        className="hidden md:block lg:hidden absolute left-0 top-0 bottom-0 w-1/3"
         style={{ backgroundColor: "#0B6E4F" }}
-      />
+      >
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(12,9,16,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(12,9,16,0.15) 1px, transparent 1px)",
+            backgroundSize: "40px 40px",
+          }}
+        />
+        <div className="absolute bottom-0 left-0 right-0 h-2/3 overflow-hidden">
+          <img
+            src="https://media.licdn.com/dms/image/v2/D4E03AQHb_qRXMo_65Q/profile-displayphoto-scale_400_400/B4EZy2Jtj8JEAg-/0/1772582532522?e=1788998400&v=beta&t=BCx1tQtXE_gHKbbYbdChsnGEokP6YjoOKtsNnAm0sxs"
+            alt="Adam Standish, frontend developer"
+            className="w-full h-full object-cover"
+            style={{ filter: "saturate(0.5) brightness(0.65)", mixBlendMode: "multiply" }}
+          />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, #0B6E4F 0%, transparent 30%)" }} />
+        </div>
+      </div>
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-8 py-20 md:py-0 w-full">
-        <div className="lg:ml-[36%]">
+        <div className="md:ml-[36%]">
           {/* Section label — visible on mobile/tablet */}
           <p className="font-mono-label text-xs uppercase tracking-widest mb-3 lg:hidden" style={{ color: "rgba(245,236,205,0.3)" }}>
             §01

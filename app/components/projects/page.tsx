@@ -58,7 +58,7 @@ export default function Projects() {
             className="font-display leading-none mb-8"
             style={{ fontSize: "clamp(2rem, 8vw, 3rem)", color: "#F5ECCD" }}
           >
-            Selected <span style={{ color: "#0B6E4F" }}>Work</span>
+            Notable <span style={{ color: "#0B6E4F" }}>Works</span>
           </h2>
           <div className="flex flex-col gap-4">
             {PROJECTS.map((p) => (

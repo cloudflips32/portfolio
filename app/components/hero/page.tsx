@@ -8,7 +8,7 @@ export default function Hero({ goToSlide }: { goToSlide?: (section: string) => v
       style={{ backgroundColor: "#0C0910", minHeight: "100svh" }}
     >
       {/* Mobile half-portrait — green panel peeking from the right */}
-      <div className="lg:hidden absolute right-0 top-0 bottom-0 w-1/3 overflow-hidden" style={{ backgroundColor: "#0B6E4F" }}>
+      <div className="md:hidden absolute right-0 top-0 bottom-0 w-1/3 overflow-hidden" style={{ backgroundColor: "#0B6E4F" }}>
         <div
           className="absolute inset-0"
           style={{
