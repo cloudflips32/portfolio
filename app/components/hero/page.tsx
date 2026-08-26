@@ -28,6 +28,37 @@ export default function Hero({ goToSlide }: { goToSlide?: (section: string) => v
         </div>
       </div>
 
+      {/* Video banner — tablet/desktop only, from below header to above "Available for work" */}
+      <div className="hidden md:block absolute top-0 left-0 right-0 overflow-hidden" style={{ bottom: "clamp(300px, 38vh, 420px)" }}>
+        <video
+          key="hero-video"
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ filter: "saturate(0.3) brightness(0.5)" }}
+        >
+          <source src="/code-placeholder.mp4" type="video/mp4" />
+        </video>
+        {/* Green color overlay */}
+        <div className="absolute inset-0" style={{ backgroundColor: "#0B6E4F", opacity: 0.15 }} />
+        {/* Gradient vignette to blend into the dark background at top and bottom */}
+        <div
+          className="absolute inset-0"
+          style={{ background: "linear-gradient(to bottom, #0C0910 0%, transparent 20%, transparent 50%, #0C0910 100%)" }}
+        />
+        {/* Subtle grid overlay on the video */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(12,9,16,0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(12,9,16,0.12) 1px, transparent 1px)",
+            backgroundSize: "80px 80px",
+          }}
+        />
+      </div>
+
       {/* Grid overlay */}
       <div
         className="absolute inset-0 pointer-events-none"

@@ -26,16 +26,9 @@ export default function NavBar({ activeSection, goToSlide }: { activeSection: st
         }}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-8 py-4 md:py-5 flex items-center justify-between">
-          <button
-            onClick={() => { goToSlide("hero"); setMenuOpen(false); }}
-            className="font-display text-lg tracking-tight"
-            style={{ color: "#F5ECCD" }}
-          >
-            AS<span style={{ color: "#E6AF2E" }}>.</span>
-          </button>
 
           {/* Desktop nav */}
-          <ul className="hidden md:flex gap-8">
+          <ul className="hidden md:flex gap-8 ml-auto">
             {NAV_ITEMS.map((item) => {
               const isActive = activeSection === item.toLowerCase();
               return (
@@ -54,7 +47,7 @@ export default function NavBar({ activeSection, goToSlide }: { activeSection: st
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden flex flex-col justify-center items-center gap-1.5 w-8 h-8"
+            className="md:hidden flex flex-col justify-center items-center gap-1.5 w-8 h-8 ml-auto"
             onClick={() => setMenuOpen((o) => !o)}
             aria-label="Toggle menu"
           >
