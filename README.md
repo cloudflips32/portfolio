@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio — 2026
 
-## Getting Started
+A single-page portfolio built with [Next.js](https://nextjs.org/) (App Router), featuring a full-screen vertical swipe experience powered by Swiper.js. Designed with a dark, minimal aesthetic using Tailwind CSS v4 and custom typography.
 
-First, run the development server:
+---
+
+## Quick Start
 
 ```bash
+# Install dependencies
+npm install
+
+# Start the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build & Deploy
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# Production build
+npm run build
 
-## Learn More
+# Start the production server
+npm start
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Sections
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The site is a single-page vertical swipe layout with five sections:
 
-## Deploy on Vercel
+| # | Section | Highlights |
+|---|---|---|
+| 0 | **Hero** | Name headline, "Available for work" badge, looping code desktop background, green portrait panel on mobile |
+| 1 | **About** | Bio, portrait image, animated stat counters that trigger on scroll |
+| 2 | **Skills** | Categorized skill grid (Languages, Frameworks, Styling, Backend & DB, Tools & APIs, Practices) with staggered fade-in |
+| 3 | **Projects** | **Desktop** — sidebar navigation + detail panel with tech icons; **Mobile** — horizontal Swiper carousel with pagination |
+| 4 | **Contact** | Validated contact form + social links (Email, GitHub, LinkedIn) |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+A fixed **NavBar** at the top highlights the active section and supports keyboard / mousewheel navigation throughout.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## Project Structure
+
+```
+app/
+├── globals.css               # Tailwind v4 imports, theme variables, font utilities
+├── layout.tsx                # Root layout — fonts, HTML/body setup
+├── page.tsx                  # Entry point — orchestrates all sections in a vertical Swiper
+└── components/
+    ├── navbar/page.tsx       # Fixed top nav with mobile hamburger menu
+    ├── hero/page.tsx         # Hero section with name & badge
+    ├── about/page.tsx        # Bio + stats with CountUp component
+    ├── skills/page.tsx       # Skill grid with scroll-triggered animations
+    ├── projects/page.tsx     # Featured projects (desktop detail / mobile carousel)
+    ├── contact/page.tsx      # Contact form + social links
+    ├── footer/page.tsx       # Copyright & tagline
+    ├── countup/page.tsx      # Reusable animated counter component
+    └── skill-icons/page.tsx  # Maps skill names to Lucide icons
+```
+
+---
+
+## Tech Stack
+
+- **Framework:** Next.js 16 (App Router) + React 19
+- **Navigation:** Swiper.js 14 — vertical full-screen slides + mobile project carousel
+- **Styling:** Tailwind CSS v4 (`@import "tailwindcss"`), CSS custom properties, `clamp()` fluid typography
+- **Icons:** Lucide React
+- **Fonts:** Roboto (display) + Geist Mono (labels) via `next/font`
+- **Language:** TypeScript
+
+### Color Palette
+
+| Color | Hex | Usage |
+|---|---|---|
+| Background | `#0C0910` | Near-black with purple undertone |
+| Text | `#F5ECCD` | Warm cream |
+| Green | `#0B6E4F` | Accent — name, side panels, section labels |
+| Gold | `#E6AF2E` | Accent — active nav, badges, category headers |

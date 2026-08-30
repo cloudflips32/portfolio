@@ -8,6 +8,8 @@ export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [errors, setErrors] = useState({ name: "", email: "", message: "" });
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   // ── Sanitize: strip HTML/script tags ──────────────────────────────────
   const sanitize = (val: string) =>
@@ -46,14 +48,40 @@ export default function Contact() {
   };
 
   // ── Handle form submit ─────────────────────────────────────────────────
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const nameErr = validate("name", form.name);
     const emailErr = validate("email", form.email);
     const messageErr = validate("message", form.message);
     setErrors({ name: nameErr, email: emailErr, message: messageErr });
     if (nameErr || emailErr || messageErr) return;
-    setSent(true);
+
+    setSubmitting(true);
+    setSubmitError("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name.trim(),
+          email: form.email.trim(),
+          message: form.message.trim(),
+        }),
+      });
+
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error || "Failed to send message.");
+      }
+
+      setSent(true);
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : "Something went wrong.";
+      setSubmitError(msg);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const inputStyle = {
@@ -244,24 +272,27 @@ export default function Contact() {
                   />
                   {errors.message && <p style={errorStyle}>{errors.message}</p>}
                 </div>
+                {submitError && (
+                  <p className="text-xs text-center" style={{ color: "#E6AF2E" }}>{submitError}</p>
+                )}
                 <button
                   type="submit"
-                  disabled={!!(errors.name || errors.email || errors.message)}
+                  disabled={submitting || !!(errors.name || errors.email || errors.message)}
                   className="w-full py-3 md:py-4 font-mono-label text-xs uppercase tracking-widest transition-all duration-200 disabled:opacity-40 md:shrink-0"
                   style={{
                     backgroundColor: "#E6AF2E",
                     color: "#0C0910",
-                    cursor: errors.name || errors.email || errors.message ? "not-allowed" : "pointer",
+                    cursor: submitting || errors.name || errors.email || errors.message ? "not-allowed" : "pointer",
                   }}
                   onMouseEnter={(e) => {
-                    if (!errors.name && !errors.email && !errors.message)
+                    if (!submitting && !errors.name && !errors.email && !errors.message)
                       e.currentTarget.style.backgroundColor = "#d49d25";
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.backgroundColor = "#E6AF2E";
                   }}
                 >
-                  Send Message
+                  {submitting ? "Sending…" : "Send Message"}
                 </button>
               </form>
             )}
