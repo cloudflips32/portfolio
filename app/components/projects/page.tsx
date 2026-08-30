@@ -1,6 +1,12 @@
 "use client";
 
 import {useState} from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper/modules';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
 
 import skillIcon from "../../components/skill-icons/page"
 
@@ -49,60 +55,68 @@ export default function Projects() {
     >
       <div className="relative max-w-7xl mx-auto px-6 md:px-8 py-20 md:py-16 w-full">
 
-        {/* Mobile: stacked cards */}
+        {/* Mobile: Swiper carousel */}
         <div className="md:hidden">
           <span className="font-mono-label text-xs uppercase tracking-widest block mb-3" style={{ color: "rgba(245,236,205,0.3)" }}>
             §03
           </span>
           <h2
-            className="font-display leading-none mb-8"
+            className="font-display leading-none mb-6"
             style={{ fontSize: "clamp(2rem, 8vw, 3rem)", color: "#F5ECCD" }}
           >
             Notable <span style={{ color: "#0B6E4F" }}>Works</span>
           </h2>
-          <div className="flex flex-col gap-4">
+          <Swiper
+            modules={[Pagination]}
+            spaceBetween={16}
+            slidesPerView={1}
+            pagination={{ clickable: true }}
+            className="!pb-12"
+            style={{ overflow: "visible" }}
+          >
             {PROJECTS.map((p) => (
-              <a
-                key={p.index}
-                href={p.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block border transition-all duration-200 active:scale-[0.98]"
-                style={{ borderColor: "rgba(245,236,205,0.08)", borderTopWidth: "2px", borderTopColor: p.color }}
-              >
-                <div className="p-5">
-                  <div className="flex items-start justify-between mb-3">
-                    <div>
-                      <p className="font-mono-label text-xs uppercase tracking-widest mb-1" style={{ color: "rgba(245,236,205,0.3)" }}>
-                        {p.year} — {p.role}
-                      </p>
-                      <h3 className="font-display text-xl" style={{ color: "#F5ECCD" }}>
-                        {p.title}
-                      </h3>
-                    </div>
-                    <span className="font-display text-3xl font-light opacity-15 leading-none" style={{ color: p.color }}>
-                      {p.index}
-                    </span>
-                  </div>
-                  <p className="text-sm leading-relaxed mb-4" style={{ color: "rgba(245,236,205,0.55)" }}>
-                    {p.description}
-                  </p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {p.tech.map((t) => (
-                      <span
-                        key={t}
-                        className="font-mono-label text-xs px-2 py-0.5 border inline-flex items-center gap-1"
-                        style={{ color: "rgba(245,236,205,0.45)", borderColor: "rgba(245,236,205,0.1)" }}
-                      >
-                        {skillIcon(t)}
-                        {t}
+              <SwiperSlide key={p.index}>
+                <a
+                  href={p.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block border transition-all duration-200 active:scale-[0.98]"
+                  style={{ borderColor: "rgba(245,236,205,0.08)", borderTopWidth: "2px", borderTopColor: p.color }}
+                >
+                  <div className="p-5">
+                    <div className="flex items-start justify-between mb-3">
+                      <div>
+                        <p className="font-mono-label text-xs uppercase tracking-widest mb-1" style={{ color: "rgba(245,236,205,0.3)" }}>
+                          {p.year} — {p.role}
+                        </p>
+                        <h3 className="font-display text-xl" style={{ color: "#F5ECCD" }}>
+                          {p.title}
+                        </h3>
+                      </div>
+                      <span className="font-display text-3xl font-light opacity-15 leading-none" style={{ color: p.color }}>
+                        {p.index}
                       </span>
-                    ))}
+                    </div>
+                    <p className="text-sm leading-relaxed mb-4" style={{ color: "rgba(245,236,205,0.55)" }}>
+                      {p.description}
+                    </p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {p.tech.map((t) => (
+                        <span
+                          key={t}
+                          className="font-mono-label text-xs px-2 py-0.5 border inline-flex items-center gap-1"
+                          style={{ color: "rgba(245,236,205,0.45)", borderColor: "rgba(245,236,205,0.1)" }}
+                        >
+                          {skillIcon(t)}
+                          {t}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              </a>
+                </a>
+              </SwiperSlide>
             ))}
-          </div>
+          </Swiper>
         </div>
 
         {/* Tablet + Desktop: sidebar + detail */}
