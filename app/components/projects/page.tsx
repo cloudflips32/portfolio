@@ -33,6 +33,16 @@ const PROJECTS = [
   },
   {
     index:       "03",
+    title:       "Hackathon Builder",
+    tech:        ["Next.js", "React", "Tailwind"],
+    description: "A smart project idea generator. This tool helps students overcome creative blocks by generating tailored project concepts based on popular technologies, databases, and APIs. Ready to deploy for any team or community.",
+    year:        "2025",
+    role:        "Frontend Engineer",
+    color:       "#4DAA57",
+    href:        "https://github.com/cloudflips32/hackathon-builder",
+  },
+  {
+    index:       "04",
     title:       "Club Template",
     tech:        ["Next.js", "React", "Firebase", "Firestore", "Tailwind"],
     description: "Reusable club/organization site template with Firebase Auth, Firestore database, and a Next.js frontend. Ready to deploy for any team or community.",
