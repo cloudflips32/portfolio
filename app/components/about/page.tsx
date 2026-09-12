@@ -34,7 +34,7 @@ export default function About() {
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-2/3 overflow-hidden">
           <img
-            src="https://media.licdn.com/dms/image/v2/D4E03AQHb_qRXMo_65Q/profile-displayphoto-scale_400_400/B4EZy2Jtj8JEAg-/0/1772582532522?e=1788998400&v=beta&t=BCx1tQtXE_gHKbbYbdChsnGEokP6YjoOKtsNnAm0sxs"
+            src="/me.jpeg"
             alt="Adam Standish, frontend developer"
             className="w-full h-full object-cover"
             style={{ filter: "saturate(0.5) brightness(0.65)", mixBlendMode: "multiply" }}
